@@ -1,5 +1,8 @@
 " vim: set noet ci pi sts=0 sw=4 ts=4 :
 
+
+" Сочитание для Leader
+let mapleader = ","
 " =================== HOTKEYS ================
 
 " Открытие конфига по ,v
@@ -130,17 +133,17 @@ nnoremap wz <c-w>\|<c-w>_
 	" bufkill
 	nnoremap zx :Bdelete<CR>
 
-	" CtrlP
-	let g:ctrlp_map = ''
-	" Only open CtrlP if the cwd ISN'T $HOME
-	nnoremap <silent><expr> <leader>/ getcwd() != $HOME ? ":<C-u>CtrlP<CR>" : ":<C-u>echoe 'Cannot open CtrlP in HOME'<CR>"
-	nnoremap <silent> <leader>. :CtrlPCurFile<CR>
-	nnoremap <silent> <leader>, :CtrlPBuffer<CR>
-	nnoremap <silent> <leader>; :CtrlPFunky<CR>
-	nnoremap <silent> <leader>m :CtrlPMRU<CR>
-	nnoremap <silent> <leader>M :CtrlPModified<CR>
-	nnoremap <silent> <leader>] :CtrlPBufTag<CR>
-	nnoremap <silent> <leader>} :CtrlPBufTagAll<CR>
+	"" CtrlP
+	"let g:ctrlp_map = ''
+	"" Only open CtrlP if the cwd ISN'T $HOME
+	"nnoremap <silent><expr> <leader>/ getcwd() != $HOME ? ":<C-u>CtrlP<CR>" : ":<C-u>echoe 'Cannot open CtrlP in HOME'<CR>"
+	"nnoremap <silent> <leader>. :CtrlPCurFile<CR>
+	"nnoremap <silent> <leader>, :CtrlPBuffer<CR>
+	"nnoremap <silent> <leader>; :CtrlPFunky<CR>
+	"nnoremap <silent> <leader>m :CtrlPMRU<CR>
+	"nnoremap <silent> <leader>M :CtrlPModified<CR>
+	"nnoremap <silent> <leader>] :CtrlPBufTag<CR>
+	"nnoremap <silent> <leader>} :CtrlPBufTagAll<CR>
 
 	" NERDTree
 	"map <localleader>\ :NERDTree <C-r>=FindRootDirectory()<CR><CR>
@@ -308,6 +311,11 @@ runtime! config/php/**
 runtime! config/java/**
 runtime! config/go/**
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if exists('g:loaded_rhubarb')
+	"" Open current line on GitHub 'tpope/vim-rhubarb'
+	nnoremap <silent><Leader>. :.GBrowse<CR>
+endif
 "============CSS block================
 " Сортировка css свойств
 noremap <silent><leader>ss <esc>vi{:!sort<cr>:echo "Свойства css отсортированы!"<cr>
@@ -474,13 +482,6 @@ nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
 
 
 "set noautochdir
-
-" ===========  ultisnips  =================
-if exists('g:Ulti')
-	let g:UltiSnipsExpandTrigger="<c-n>"
-	let g:UltiSnipsJumpForwardTrigger="<c-b>"
-	let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-endif
 " ===========  supertab  =================
 "let g:SuperTabNoCompleteAfter = ['^', '\s']
 "let g:SuperTabCrMapping = 0
