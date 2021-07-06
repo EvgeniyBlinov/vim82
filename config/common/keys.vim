@@ -480,6 +480,12 @@ nnoremap <F8> :vertical wincmd F<CR>
 nnoremap <C-x> :vertical wincmd F<CR>
 nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
 
+" example
+" ===========  markdown  =================
+"nmap <C-s> <Plug>MarkdownPreview
+"nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-p> <Plug>MarkdownPreviewToggle
+
 
 "set noautochdir
 " ===========  supertab  =================

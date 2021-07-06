@@ -72,6 +72,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	" Use release branch (recommend)
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************
