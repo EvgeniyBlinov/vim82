@@ -496,6 +496,8 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 
 " ===========  theme  ====================
-noremap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-                        \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-                        \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "") . ' &')<cr>
+
+"noremap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+                        "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+                        "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

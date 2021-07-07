@@ -29,6 +29,7 @@ endif
 set confirm " использовать диалоги вместо сообщений об ошибках
 set novb " Отключить оповещение об ошибка
 set shortmess+=I " И нет детей Уганды
+set shortmess+=a
 
 
 set nocompatible				" Use Vim defaults (much better!)
