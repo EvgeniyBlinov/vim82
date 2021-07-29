@@ -7,6 +7,8 @@
       }
   },
 
+  "yaml.format.enable": false,
+  "yaml.schemaStore.enable": false,
   "yaml.schemas": {
       "kubernetes": "/k8s*.y*ml"
   }

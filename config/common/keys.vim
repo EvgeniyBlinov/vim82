@@ -501,3 +501,4 @@ noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "")
 "noremap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
                         "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
                         "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nmap <leader>g :.GBrowse<cr>
