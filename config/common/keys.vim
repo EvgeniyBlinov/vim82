@@ -50,8 +50,10 @@ map <c-z> u
 imap <c-z> <C-O>u
 
 " вернуть отменённое назад
-noremap <c-y> <C-R>
-inoremap <c-y> <C-O><C-R>
+"noremap <c-y> <C-R>
+"inoremap <c-y> <C-O><C-R>
+noremap <c-y> :redo<CR>
+inoremap <c-y> <C-O>:redo<CR>
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
 " будет «глючить» — отсупы будут «съезжать». К счастью, это легко исправить — нажав Ctrl+U сразу после вставки.
