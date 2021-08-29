@@ -13,6 +13,13 @@ Vim for 8.2 and upper
     * node > 12
     * yarn
 
+### Configure
+
+```
+vim -c ':PlugInstall'
+```
+
+
 ### Usage
 
 plantuml svg browser autoupdate
