@@ -64,6 +64,11 @@ inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 " убрать подсветку найденных совпадений
 nnoremap <C-h> :noh<CR>
 
+" Save by Ctrl+s
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
 " ====================  TABS  ============================================
 " {{{ Вкладки
 " Новая вкладка
