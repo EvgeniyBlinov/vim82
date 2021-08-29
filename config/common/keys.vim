@@ -496,6 +496,7 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 " ===========  hints  ====================
 "" show local current function
 ":verbose setlocal omnifunc?
+"https://vimhelp.org/insert.txt.html#i%5FCTRL%2DV - debug keys
 
 "" phone scroll up
 silent! unmap <C-r>
