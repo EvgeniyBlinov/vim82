@@ -52,8 +52,8 @@ imap <c-z> <C-O>u
 " вернуть отменённое назад
 "noremap <c-y> <C-R>
 "inoremap <c-y> <C-O><C-R>
-noremap <c-u> :redo<CR>
-inoremap <c-u> <C-O>:redo<CR>
+noremap <c-y> :redo<CR>
+inoremap <c-y> <C-O>:redo<CR>
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
 " будет «глючить» — отсупы будут «съезжать». К счастью, это легко исправить — нажав Ctrl+U сразу после вставки.
@@ -500,9 +500,9 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 
 "" phone scroll up
 silent! unmap <C-r>
-map <C-r> <C-Y>
-nmap <C-r> <C-Y>
-imap <C-r> <C-Y>
+map <C-r> <C-U><C-U>
+nmap <C-r> <C-U><C-U>
+imap <C-r> <C-U><C-U>
 
 
 " ===========  theme  ====================
