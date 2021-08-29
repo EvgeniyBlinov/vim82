@@ -495,6 +495,13 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 "" show local current function
 ":verbose setlocal omnifunc?
 
+"" phone scroll up
+silent! unmap <C-r>
+map <C-r> <C-Y>
+nmap <C-r> <C-Y>
+imap <C-r> <C-Y>
+
+
 " ===========  theme  ====================
 noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "") . ' &')<cr>
 

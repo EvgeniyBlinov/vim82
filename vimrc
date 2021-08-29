@@ -53,12 +53,13 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'preservim/nerdcommenter'
 	" For Git
 	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-	Plug 'shumphrey/fugitive-gitlab.vim'
-	"Plug 'airblade/vim-gitgutter'
 
-	"ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
-	Plug 'dense-analysis/ale'
+	"Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+	"Plug 'shumphrey/fugitive-gitlab.vim'
+	""Plug 'airblade/vim-gitgutter'
+
+	""ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
+	"Plug 'dense-analysis/ale'
 
 	" Open file in grep format file:line_number
 	Plug 'bogado/file-line'
@@ -69,29 +70,19 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'lilydjwg/colorizer'
 
-	" Use release branch (recommend)
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-	Plug 'aklt/plantuml-syntax'
-
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************
-	" go
-	"" Go Lang Bundle
-	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 	" python
 	"" Python Bundle
 
-	" Python 3
-	if has('python3')
-		"" vim +python3 required
-		Plug 'davidhalter/jedi-vim'
-		"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-	endif
+	"" Python 3
+	"if has('python3')
+		""" vim +python3 required
+		"Plug 'davidhalter/jedi-vim'
+		""Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+	"endif
 
 	"" Python 2
 	"if has('python')
@@ -126,35 +117,13 @@ endif
 
 "*****************************************************************************
 
-" ===========  coc  ======================
-let g:coc_disable_startup_warning = 1
-"'coc-yaml@1.3.1',
-let g:coc_global_extensions = [
-	\'coc-json',
-	\'coc-go',
-	\'coc-yaml',
-	\'coc-tsserver',
-	\'coc-html'
-	\]
-" ===========  coc  ======================
-
-"*****************************************************************************
-"*****************************************************************************
-
 
 " Required:
 filetype plugin indent on
 
 
-"" Coc.vim debug
-"let g:node_client_debug = 1
-"let $NODE_CLIENT_LOG_FILE = '/home/evgeniy/.vim/coc_debug'
-"let g:coc_node_args = ['--nolazy', '--inspect=6045']
-
-"Add "yaml.trace.server": "verbose" to your coc-settings.json
-":CocCommand workspace.showOutput yaml
-
 runtime! config/common/**
-runtime! PROJECTS/**
+
+colorscheme happy_hacking
 
  "echo -e "var:\n  var: value\n  var2: 123" | nvim - --headless +'set runtimepath+=$HOME/.vim' +'set ft=yaml'  +'runtime! vimrc' +'runtime! catcolored.vim'  +'q!'
