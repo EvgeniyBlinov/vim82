@@ -1,0 +1,2 @@
+set et fenc=utf-8 ff=unix sts=2 sw=2 ts=2
+set foldmethod=indent
