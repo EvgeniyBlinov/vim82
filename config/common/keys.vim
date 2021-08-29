@@ -1,4 +1,6 @@
 " vim: set noet ci pi sts=0 sw=4 ts=4 :
+"
+":verbose map  - to know where each mapping was defined.
 
 
 " Сочитание для Leader
@@ -52,8 +54,8 @@ imap <c-z> <C-O>u
 " вернуть отменённое назад
 "noremap <c-y> <C-R>
 "inoremap <c-y> <C-O><C-R>
-noremap <c-y> :redo<CR>
-inoremap <c-y> <C-O>:redo<CR>
+noremap <c-p> :redo<CR>
+inoremap <c-p> <C-O>:redo<CR>
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
 " будет «глючить» — отсупы будут «съезжать». К счастью, это легко исправить — нажав Ctrl+U сразу после вставки.
@@ -486,7 +488,7 @@ nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
 " ===========  markdown  =================
 "nmap <C-s> <Plug>MarkdownPreview
 "nmap <M-s> <Plug>MarkdownPreviewStop
-nmap <C-p> <Plug>MarkdownPreviewToggle
+"nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
 "set noautochdir
@@ -498,11 +500,11 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 "https://vimhelp.org/insert.txt.html#i%5FCTRL%2DV - debug keys
 
-"" phone scroll up
+"" unknown
 silent! unmap <C-r>
-map <C-r> <C-U><C-U>
-nmap <C-r> <C-U><C-U>
-imap <C-r> <C-U><C-U>
+map <C-r> <C-Y>
+nmap <C-r> <C-Y>
+imap <C-r> <C-Y>
 
 
 " ===========  theme  ====================
