@@ -75,6 +75,7 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 	Plug 'aklt/plantuml-syntax'
+	Plugin 'mustache/vim-mustache-handlebars'
 
 	"*****************************************************************************
 	"" Custom bundles
