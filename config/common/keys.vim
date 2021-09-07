@@ -502,3 +502,18 @@ noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "")
                         "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
                         "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 nmap <leader>g :.GBrowse<cr>
+
+" ===  open custom file  =================
+if !exists('g:custom_file_links')
+	let g:custom_file_links = {}
+endif
+
+
+function! OpenCustomFile()
+	" a: prefix for arguments
+	let l:index = getcharstr()
+	:exec(":tabf " . get(g:custom_file_links, l:index))
+endfunction
+" ===  open custom file  =================
+
+nmap <leader>o :call OpenCustomFile()<cr>
