@@ -51,6 +51,8 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'preservim/nerdtree'
 	Plug 'preservim/nerdcommenter'
+	Plug 'kana/vim-textobj-user'
+
 	" For Git
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
