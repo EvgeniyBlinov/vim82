@@ -1,5 +1,6 @@
 " vim: set noet ci pi sts=0 sw=4 ts=4 :
 " https://github.com/rstacruz/cheatsheets/blob/master/vimscript.md
+" https://vimhelp.org/eval.txt.html#internal-variables
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -46,6 +47,8 @@ endif
 
 "let g:plugs_disabled = ['nerdtree']
 
+let g:ale_go_bingo_options = '-remote=auto'
+
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
@@ -60,7 +63,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	"Plug 'airblade/vim-gitgutter'
 
 	"ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
-	Plug 'dense-analysis/ale'
+	" @TODO:  <12-09-21, Evgeniy Blinov <evgeniy_blinov@mail.ru>> : fix gopls --mode stdio
+	"Plug 'dense-analysis/ale'
 
 	" Open file in grep format file:line_number
 	Plug 'bogado/file-line'
@@ -133,18 +137,9 @@ endif
 " ===========  coc  ======================
 let g:coc_disable_startup_warning = 1
 "'coc-yaml@1.3.1',
-	"\'coc-go',
-  ",
-  ""languageserver": {
-    ""golang": {
-      ""command": "gopls",
-      ""args": ["-remote=auto"],
-      ""rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      ""filetypes": ["go"]
-    "}
-  "}
 let g:coc_global_extensions = [
 	\'coc-json',
+	\'coc-go',
 	\'coc-yaml',
 	\'coc-tsserver',
 	\'coc-html'

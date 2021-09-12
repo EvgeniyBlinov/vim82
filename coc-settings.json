@@ -4,4 +4,13 @@
   "yaml.schemas": {
       "kubernetes": "/k8s*.y*ml"
   }
+  ,
+  "languageserver": {
+	"golang": {
+	  "command": "gopls",
+	  "args": ["-remote=auto"],
+	  "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+	  "filetypes": ["go"]
+	}
+  }
 }

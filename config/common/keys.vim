@@ -302,7 +302,20 @@ endif
 " ctags
 "-------------------------
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
+function! s:GoToDefinition()
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
+
+  let ret = execute("silent! normal \<C-]>")
+  if ret =~ "Error" || ret =~ "错误"
+    call searchdecl(expand('<cword>'))
+  endif
+endfunction
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
+"map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
+map <C-\> :vsp <CR>:call <SID>GoToDefinition()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists('g:loaded_rhubarb')
