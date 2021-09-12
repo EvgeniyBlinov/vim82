@@ -303,13 +303,6 @@ endif
 "-------------------------
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"-------------------------
-" PHP настройки
-"-------------------------
-runtime! config/php/**
-runtime! config/java/**
-runtime! config/go/**
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists('g:loaded_rhubarb')

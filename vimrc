@@ -133,9 +133,18 @@ endif
 " ===========  coc  ======================
 let g:coc_disable_startup_warning = 1
 "'coc-yaml@1.3.1',
+	"\'coc-go',
+  ",
+  ""languageserver": {
+    ""golang": {
+      ""command": "gopls",
+      ""args": ["-remote=auto"],
+      ""rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      ""filetypes": ["go"]
+    "}
+  "}
 let g:coc_global_extensions = [
 	\'coc-json',
-	\'coc-go',
 	\'coc-yaml',
 	\'coc-tsserver',
 	\'coc-html'
