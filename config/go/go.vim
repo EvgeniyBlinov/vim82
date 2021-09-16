@@ -6,3 +6,6 @@ let g:go_gopls_options = ['-remote=auto']
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_referrers_mode = 'gopls'
+
+au BufRead,BufNewFile *.go let g:ale_enabled = 0
+

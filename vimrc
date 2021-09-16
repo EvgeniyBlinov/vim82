@@ -63,8 +63,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	"Plug 'airblade/vim-gitgutter'
 
 	"ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
-	" @TODO:  <12-09-21, Evgeniy Blinov <evgeniy_blinov@mail.ru>> : fix gopls --mode stdio
-	"Plug 'dense-analysis/ale'
+	"" let g:ale_enabled = 0
+	Plug 'dense-analysis/ale'
 
 	" Open file in grep format file:line_number
 	Plug 'bogado/file-line'
@@ -99,6 +99,7 @@ call plug#begin(expand('~/.vim/plugged'))
 		"" vim +python3 required
 		Plug 'davidhalter/jedi-vim'
 		"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+		Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 	endif
 
 	"" Python 2
