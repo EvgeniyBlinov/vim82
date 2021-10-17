@@ -6,7 +6,7 @@ let mapleader = ","
 " =================== HOTKEYS ================
 
 " Открытие конфига по ,v
-map <silent><leader>v :tabf $HOME/$VIMDIR/vimrc<cr>
+map <silent><leader>v :tabf $VIMDIR/vimrc<cr>
 map <silent><leader>s :source $MYVIMRC<cr>
 
 " При отступах не снимать выделение
