@@ -73,11 +73,17 @@ nmap ,t :tabnew<CR>
 map  <C-S-left> :tabp<cr>
 nmap <C-S-left> :tabp<cr>
 imap <C-S-left> <esc>:tabp<cr>i
+map  <C-,> :tabn<cr>
+nmap  <C-,> :tabn<cr>
+imap  <C-,> :tabn<cr>
 
 " Следующая вкладка
 map  <C-S-right> :tabn<cr>
 nmap <C-S-right> :tabn<cr>
 imap <C-S-right> <esc>:tabn<cr>i
+map  <C-.> :tabn<cr>
+nmap  <C-.> :tabn<cr>
+imap  <C-.> :tabn<cr>
 
 " }}}
 " Переключение табов (вкладок) с помощью SHIFT+TAB и CTRL+TAB
