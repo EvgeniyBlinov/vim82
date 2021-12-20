@@ -84,6 +84,8 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'mustache/vim-mustache-handlebars'
 
+	Plug 'Glench/Vim-Jinja2-Syntax'
+
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************

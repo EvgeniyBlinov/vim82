@@ -21,3 +21,5 @@
 " ale
 ":call extend(g:ale_linters, {
     "\'python': ['flake8'], })
+
+"let g:jedi#rename_command = "<Nop>"
