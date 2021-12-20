@@ -33,8 +33,9 @@ hi MoreMsg guibg=NONE guifg=seagreen
 hi! link Question MoreMsg
 
 " Split area {{{1
-hi StatusLine term=BOLD,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guibg=#56A0EE guifg=white
-hi StatusLineNC gui=NONE guibg=#56A0EE guifg=#E9E9F4
+"hi StatusLine term=BOLD,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guibg=#56A0EE guifg=white
+hi StatusLine term=BOLD,reverse cterm=NONE ctermfg=LightYellow ctermbg=DarkGray gui=BOLD guibg=#56A0EE guifg=white
+hi StatusLineNC gui=NONE guibg=#56A0EE guifg=#E9E9F4 term=BOLD,underline ctermbg=LightGray cterm=NONE
 hi! link VertSplit StatusLineNC
 hi WildMenu gui=UNDERLINE guifg=#56A0EE guibg=#E9E9F4
 
