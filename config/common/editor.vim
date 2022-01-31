@@ -1,6 +1,15 @@
 " vim: set noet ci pi sts=0 sw=4 ts=4 :
 """"""""""""""""""""""""""""""""    FILE   """"""""""""""""""""""""""""""""""""
 
+"" Auto delete (close) buffer on exit
+"set bufhidden=delete
+"autocmd BufRead * call s:set_hidden()
+"function s:set_hidden()
+	"if empty(&buftype) "most explorer plugins have buftype=nofile
+		"setlocal bufhidden=delete
+	"endif
+"endfunction
+
 set foldenable 			" Фолдинг сворачивание кода
 set foldmethod=manual
 "set foldmethod=indent

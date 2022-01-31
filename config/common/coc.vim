@@ -3,7 +3,8 @@
 set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
-set hidden
+" @TODO:  <31-01-22, Evgeniy Blinov <evgeniy_blinov@mail.ru>> : when TextEdit fail
+"set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
