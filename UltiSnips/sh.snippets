@@ -1,0 +1,47 @@
+# This file contains snippets that are always defined. I personally
+# have snippets for signatures and often needed texts
+
+# sligthly lower priority than everything else since specialized versions
+# should overwrite. The user needs to adjust her priority in her snippets to
+# ~-55 so that other filetypes will still overwrite.
+#priority -59
+
+global !p
+from vimsnippets import foldmarker, make_box, get_comment_format
+endglobal
+
+#########
+# Function docblock
+#########
+snippet docfn
+#######################################
+# ${1:Function}
+# Globals:
+#   SOMEDIR
+# Arguments:
+#   None
+# Outputs:
+#   Writes location to stdout
+# Returns:
+#   0 if success
+#######################################
+endsnippet
+
+snippet fnc
+#######################################
+# ${1:Function}
+# Globals:
+#   SOMEDIR
+# Arguments:
+#   None
+# Outputs:
+#   Writes location to stdout
+# Returns:
+#   0 if success
+#######################################
+${1:Function}() {
+	${2:#code}
+}
+endsnippet
+
+# vim:ft=snippets:
