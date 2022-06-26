@@ -86,6 +86,8 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'Glench/Vim-Jinja2-Syntax'
 
+	Plug 'mattn/emmet-vim'
+
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************
@@ -120,6 +122,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'SirVer/ultisnips'
 	"snipMate & UltiSnip Snippets
 	Plug 'honza/vim-snippets'
+
+	Plug 'will133/vim-dirdiff', { 'commit': '84bc8999fde4b3c2d8b228b560278ab30c7ea4c9' }
 
 
 	"call plug_disable#commit()
