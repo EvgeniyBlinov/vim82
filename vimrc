@@ -117,6 +117,14 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'pedrohdz/vim-yaml-folds'
 
+	" javascript
+	"" Javascript Bundle
+	Plug 'jelera/vim-javascript-syntax'
+
+
+	" typescript
+	Plug 'leafgarland/typescript-vim'
+	Plug 'HerringtonDarkholme/yats.vim'
 
 	"*****************************************************************************
 	"*****************************************************************************
