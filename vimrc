@@ -91,6 +91,9 @@ call plug#begin(expand('~/.vim/plugged'))
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************
+	" table mode
+	Plug 'dhruvasagar/vim-table-mode'
+
 	" go
 	"" Go Lang Bundle
 	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
