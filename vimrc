@@ -88,6 +88,9 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'mattn/emmet-vim'
 
+	"" Code structure for neovim only
+	"Plug 'stevearc/aerial.nvim'
+
 	"*****************************************************************************
 	"" Custom bundles
 	"*****************************************************************************
@@ -128,6 +131,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	" typescript
 	Plug 'leafgarland/typescript-vim'
 	Plug 'HerringtonDarkholme/yats.vim'
+
+	Plug 'udalov/kotlin-vim'
 
 	"*****************************************************************************
 	"*****************************************************************************
