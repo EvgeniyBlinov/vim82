@@ -171,8 +171,12 @@ let g:coc_global_extensions = [
 	\'coc-go',
 	\'coc-yaml',
 	\'coc-tsserver',
-	\'coc-html'
+	\'coc-html',
+	\'coc-java',
+	\'coc-jedi'
 	\]
+
+"g:coc_user_config
 " ===========  coc  ======================
 
 if has("autocmd")
