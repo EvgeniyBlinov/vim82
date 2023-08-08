@@ -203,3 +203,7 @@ runtime! config/common/**
 runtime! PROJECTS/**
 
  "echo -e "var:\n  var: value\n  var2: 123" | nvim - --headless +'set runtimepath+=$HOME/.vim' +'set ft=yaml'  +'runtime! vimrc' +'runtime! catcolored.vim'  +'q!'
+
+"" Blue background fix
+"set t_Co=256
+"set background=dark

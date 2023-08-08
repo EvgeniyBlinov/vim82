@@ -5,6 +5,13 @@
 let mapleader = ","
 " =================== HOTKEYS ================
 
+
+"" Enable Ctrl+arrow for screen
+if &term == "screen"
+	map <esc>[1;5D <C-Left>
+	map <esc>[1;5C <C-Right>
+endif
+
 " Открытие конфига по ,v
 map <silent><leader>v :tabf $VIMDIR/vimrc<cr>
 map <silent><leader>s :source $MYVIMRC<cr>
