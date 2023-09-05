@@ -291,6 +291,9 @@ hi! link sassInclude cssMedia
 hi! link shFunctionKey Keyword
 hi! link shTestOpr     Operator
 hi! link bashStatement Normal
+hi! link shVariable Directory
+hi! link shHereString String
+hi! link shDeref Directory
 
 " SQL
 hi! link sqlKeyword Keyword
