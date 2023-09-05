@@ -12,13 +12,23 @@
 	"echo "light"
 "endif
 
+if $COLORFGBG=="dark"
+	set background=dark
+else
+	set background=light
+endif
+
 "if &term=="xterm"
 if &term=~"xterm"
 	"set t_Co=8
 	set t_Co=256			" set 256 colors
 	set t_Sb=[4%dm
 	set t_Sf=[3%dm
-	colorscheme habiLight
+	if &background=="dark"
+		colorscheme happy_hacking
+	elseif &background=="light"
+		colorscheme habiLight
+	endif
 
 	" Подсветка спец символов
 	autocmd VimEnter,Colorscheme * :hi SpecialKey ctermfg=8
@@ -29,7 +39,11 @@ elseif &term=="linux"
 	colorscheme happy_hacking
 else
 	set t_Co=256
-	colorscheme habiLight
+	if &background=="dark"
+		colorscheme happy_hacking
+	elseif &background=="light"
+		colorscheme habiLight
+	endif
 endif
 
 "colorscheme default
