@@ -24,6 +24,7 @@
 
 "let g:jedi#rename_command = "<Nop>"
 
+if exists("coc#config")
 call coc#config('python', {
 \   'jediEnabled': v:false,
 \   'pythonPath': split(execute('!which python'), '\n')[-1]
@@ -34,3 +35,4 @@ call coc#config('jedi', {
 \		'environmentPath': split(execute('!which python'), '\n')[-1]
 \ }
 \ })
+endif

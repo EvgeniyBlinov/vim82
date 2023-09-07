@@ -12,6 +12,18 @@ else
 	let curl_exists=expand('curl')
 endif
 
+"*****************************************************************************
+
+"" Include user's local vim config
+if filereadable(expand("$VIMDIR/.vimrc.local"))
+  source $VIMDIR/.vimrc.local
+endif
+
+"*****************************************************************************
+
+"" (minimal|full)
+let g:vim_config_variant = get(g:, 'vim_config_variant', ['minimal'])
+
 let g:vim_bootstrap_langs = "go,python"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "let g:vim_bootstrap_theme = "molokai"
@@ -75,73 +87,89 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'lilydjwg/colorizer'
 
-	" Use release branch (recommend)
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	if index(g:vim_config_variant, 'coc') >= 0
+		" Use release branch (recommend)
+		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	endif
 
-	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+	if index(g:vim_config_variant, 'ide') >= 0
+		Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-	Plug 'aklt/plantuml-syntax'
+		Plug 'aklt/plantuml-syntax'
 
-	Plug 'mustache/vim-mustache-handlebars'
+		Plug 'mustache/vim-mustache-handlebars'
 
-	Plug 'Glench/Vim-Jinja2-Syntax'
+		Plug 'Glench/Vim-Jinja2-Syntax'
 
-	Plug 'mattn/emmet-vim'
+		Plug 'mattn/emmet-vim'
 
-	"" Code structure for neovim only
-	"Plug 'stevearc/aerial.nvim'
+		"" Code structure for neovim only
+		"Plug 'stevearc/aerial.nvim'
 
-	"*****************************************************************************
-	"" Custom bundles
-	"*****************************************************************************
-	" table mode
-	Plug 'dhruvasagar/vim-table-mode'
+		"*****************************************************************************
+		"" Custom bundles
+		"*****************************************************************************
+		" table mode
+		Plug 'dhruvasagar/vim-table-mode'
+	endif
 
-	" go
-	"" Go Lang Bundle
-	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+	if index(g:vim_config_variant, 'go') >= 0
+		" go
+		"" Go Lang Bundle
+		Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+	endif
 
 	" python
 	"" Python Bundle
 
 	" Python 3
 	if has('python3')
-		"" vim +python3 required
-		Plug 'davidhalter/jedi-vim'
-		"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-		Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+		if index(g:vim_config_variant, 'python') >= 0
+			"" vim +python3 required
+			Plug 'davidhalter/jedi-vim'
+			"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+			Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+
+			"" Python 2
+			"if has('python')
+			"" some code
+			"endif
+		endif
 	endif
 
-	"" Python 2
-	"if has('python')
-	"" some code
-	"endif
+	if index(g:vim_config_variant, 'devops') >= 0
+		Plug 'hashivim/vim-terraform'
 
-	Plug 'hashivim/vim-terraform'
+		Plug 'robbles/logstash.vim'
 
-	Plug 'robbles/logstash.vim'
+		Plug 'pedrohdz/vim-yaml-folds'
+	endif
 
-	Plug 'pedrohdz/vim-yaml-folds'
-
-	" javascript
-	"" Javascript Bundle
-	Plug 'jelera/vim-javascript-syntax'
+	if index(g:vim_config_variant, 'js') >= 0
+		" javascript
+		"" Javascript Bundle
+		Plug 'jelera/vim-javascript-syntax'
 
 
-	" typescript
-	Plug 'leafgarland/typescript-vim'
-	Plug 'HerringtonDarkholme/yats.vim'
+		" typescript
+		Plug 'leafgarland/typescript-vim'
+		Plug 'HerringtonDarkholme/yats.vim'
+	endif
 
-	Plug 'udalov/kotlin-vim'
+	if index(g:vim_config_variant, 'java') >= 0
+		Plug 'udalov/kotlin-vim'
+	endif
 
-	"*****************************************************************************
-	"*****************************************************************************
-	"" Snippets
-	Plug 'SirVer/ultisnips'
-	"snipMate & UltiSnip Snippets
-	Plug 'honza/vim-snippets'
+	if index(g:vim_config_variant, 'ide') >= 0
+		"*****************************************************************************
+		"*****************************************************************************
+		"" Snippets
+		Plug 'SirVer/ultisnips'
+		"snipMate & UltiSnip Snippets
+		Plug 'honza/vim-snippets'
 
-	Plug 'will133/vim-dirdiff', { 'commit': '84bc8999fde4b3c2d8b228b560278ab30c7ea4c9' }
+		Plug 'will133/vim-dirdiff', { 'commit': '84bc8999fde4b3c2d8b228b560278ab30c7ea4c9' }
+	endif
 
 
 	"call plug_disable#commit()
@@ -152,14 +180,6 @@ call plug#begin(expand('~/.vim/plugged'))
 	endif
 
 call plug#end()
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-if filereadable(expand("$VIMDIR/.vimrc.local"))
-  source $VIMDIR/.vimrc.local
-endif
 
 "*****************************************************************************
 

@@ -72,18 +72,20 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
+if exists("coc#config")
+	function! s:show_documentation()
+		if (index(['vim','help'], &filetype) >= 0)
+			execute 'h '.expand('<cword>')
+		elseif (coc#rpc#ready())
+			call CocActionAsync('doHover')
+		else
+			execute '!' . &keywordprg . " " . expand('<cword>')
+		endif
+	endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+	" Highlight the symbol and its references when holding the cursor.
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -92,13 +94,15 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+if exists("coc#config")
+	augroup mygroup
+		autocmd!
+		" Setup formatexpr specified filetype(s).
+		autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+		" Update signature help on jump placeholder.
+		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	augroup end
+endif
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
