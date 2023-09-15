@@ -515,8 +515,25 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 
 " ===========  theme  ====================
+nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap <F12> :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
 noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "") . ' &')<cr>
 
+"function! SynStack ()
+	"for i1 in synstack(line("."), col("."))
+		"let i2 = synIDtrans(i1)
+		"let n1 = synIDattr(i1, "name")
+		"let n2 = synIDattr(i2, "name")
+		"echo n1 "->" n2
+	"endfor
+	""let l:s = synID(line('.'), col('.'), 1)
+    ""echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+"endfunction
+"map gm :call SynStack()<CR>
+"
 "noremap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
                         "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
                         "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -558,3 +575,5 @@ com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
 
 nnoremap \m :ShowMaps<CR>            " Map keys to call the function
 " ===========  show key bindings  ====================
+
+
