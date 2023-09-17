@@ -29,6 +29,11 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "let g:vim_bootstrap_theme = "molokai"
 let g:vim_bootstrap_frams = ""
 
+
+let g:vimwiki_list = [{'path': '~/doc/',
+						\ 'syntax': 'markdown', 
+						\ 'ext': '.md'}]
+
 if !filereadable(vimplug_exists)
 	if !executable(curl_exists)
 		echoerr "You have to install curl or first install vim-plug yourself!"
@@ -86,6 +91,8 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'editorconfig/editorconfig-vim'
 
 	Plug 'lilydjwg/colorizer'
+
+	Plug 'vimwiki/vimwiki'
 
 	if index(g:vim_config_variant, 'coc') >= 0
 		" Use release branch (recommend)
@@ -198,6 +205,7 @@ let g:coc_global_extensions = [
 
 "g:coc_user_config
 " ===========  coc  ======================
+
 
 if has("autocmd")
   au BufNewFile,BufRead *.tpl set filetype=mustache
