@@ -57,7 +57,7 @@ endif
 "set langmenu=en_US.UTF-8
 
 " Языковые установ" Языковые
-if stridx($SHELL, "com.termux")
+if stridx($SHELL, "com.termux") >= 0
 	set keymap=russian-jcukenwin
 endif
 "set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
