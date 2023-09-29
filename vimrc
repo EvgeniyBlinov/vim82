@@ -75,13 +75,7 @@ call plug#begin(expand('~/.vim/plugged'))
 
 	" For Git
 	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-	Plug 'shumphrey/fugitive-gitlab.vim'
-	"Plug 'airblade/vim-gitgutter'
 
-	"ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
-	"" let g:ale_enabled = 0
-	Plug 'dense-analysis/ale'
 
 	" Open file in grep format file:line_number
 	Plug 'bogado/file-line'
@@ -100,6 +94,14 @@ call plug#begin(expand('~/.vim/plugged'))
 	endif
 
 	if index(g:vim_config_variant, 'ide') >= 0
+		Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+		Plug 'shumphrey/fugitive-gitlab.vim'
+		"Plug 'airblade/vim-gitgutter'
+
+		"ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors)
+		"" let g:ale_enabled = 0
+		Plug 'dense-analysis/ale'
+
 		Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 		Plug 'aklt/plantuml-syntax'
