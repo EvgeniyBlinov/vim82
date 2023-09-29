@@ -61,8 +61,10 @@ imap <c-z> <C-O>u
 " вернуть отменённое назад
 "noremap <c-y> <C-R>
 "inoremap <c-y> <C-O><C-R>
+if stridx($SHELL, "com.termux") < 0
 noremap <c-p> :redo<CR>
 inoremap <c-p> <C-O>:redo<CR>
+endif
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
 " будет «глючить» — отсупы будут «съезжать». К счастью, это легко исправить — нажав Ctrl+U сразу после вставки.
@@ -524,11 +526,13 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 "https://vimhelp.org/insert.txt.html#i%5FCTRL%2DV - debug keys
 
+if stridx($SHELL, "com.termux") < 0
 "" unknown
 silent! unmap <C-r>
 map <C-r> <C-Y>
 nmap <C-r> <C-Y>
 imap <C-r> <C-Y>
+endif
 
 " ===========  theme  ====================
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>trans<'
