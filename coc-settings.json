@@ -12,5 +12,6 @@
 	  "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
 	  "filetypes": ["go"]
 	}
-  }
+  },
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk"
 }
