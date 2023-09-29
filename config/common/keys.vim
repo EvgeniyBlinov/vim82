@@ -7,8 +7,15 @@
 let mapleader = ","
 " =================== HOTKEYS ================
 
+
+"" Enable Ctrl+arrow for screen
+if &term == "screen"
+	map <esc>[1;5D <C-Left>
+	map <esc>[1;5C <C-Right>
+endif
+
 " Открытие конфига по ,v
-map <silent><leader>v :tabf $HOME/$VIMDIR/vimrc<cr>
+map <silent><leader>v :tabf $VIMDIR/vimrc<cr>
 map <silent><leader>s :source $MYVIMRC<cr>
 
 " При отступах не снимать выделение
@@ -82,11 +89,17 @@ nmap ,t :tabnew<CR>
 map  <C-S-left> :tabp<cr>
 nmap <C-S-left> :tabp<cr>
 imap <C-S-left> <esc>:tabp<cr>i
+map  <C-,> :tabn<cr>
+nmap  <C-,> :tabn<cr>
+imap  <C-,> :tabn<cr>
 
 " Следующая вкладка
 map  <C-S-right> :tabn<cr>
 nmap <C-S-right> :tabn<cr>
 imap <C-S-right> <esc>:tabn<cr>i
+map  <C-.> :tabn<cr>
+nmap  <C-.> :tabn<cr>
+imap  <C-.> :tabn<cr>
 
 " }}}
 " Переключение табов (вкладок) с помощью SHIFT+TAB и CTRL+TAB
@@ -311,14 +324,20 @@ endif
 " ctags
 "-------------------------
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"-------------------------
-" PHP настройки
-"-------------------------
-runtime! config/php/**
-runtime! config/java/**
-runtime! config/go/**
+function! s:GoToDefinition()
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
+
+  let ret = execute("silent! normal \<C-]>")
+  if ret =~ "Error" || ret =~ "错误"
+    call searchdecl(expand('<cword>'))
+  endif
+endfunction
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
+"map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
+map <C-\> :vsp <CR>:call <SID>GoToDefinition()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists('g:loaded_rhubarb')
@@ -493,7 +512,7 @@ nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
 " ===========  markdown  =================
 "nmap <C-s> <Plug>MarkdownPreview
 "nmap <M-s> <Plug>MarkdownPreviewStop
-"nmap <C-p> <Plug>MarkdownPreviewToggle
+nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
 "set noautochdir
@@ -511,11 +530,67 @@ map <C-r> <C-Y>
 nmap <C-r> <C-Y>
 imap <C-r> <C-Y>
 
-
 " ===========  theme  ====================
+nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap <F12> :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
+
 noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "") . ' &')<cr>
 
+"function! SynStack ()
+	"for i1 in synstack(line("."), col("."))
+		"let i2 = synIDtrans(i1)
+		"let n1 = synIDattr(i1, "name")
+		"let n2 = synIDattr(i2, "name")
+		"echo n1 "->" n2
+	"endfor
+	""let l:s = synID(line('.'), col('.'), 1)
+    ""echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+"endfunction
+"map gm :call SynStack()<CR>
+"
 "noremap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
                         "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
                         "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 nmap <leader>g :.GBrowse<cr>
+
+" ===  open custom file  =================
+if !exists('g:custom_file_links')
+	let g:custom_file_links = {}
+endif
+
+
+function! OpenCustomFile()
+	" a: prefix for arguments
+	let l:index = getcharstr()
+	:exec(":tabf " . get(g:custom_file_links, l:index))
+endfunction
+" ===  open custom file  =================
+
+nmap <leader>o :call OpenCustomFile()<cr>
+
+" ===========  show key bindings  ====================
+function! s:ShowMaps()
+  let old_reg = getreg("a")          " save the current content of register a
+  let old_reg_type = getregtype("a") " save the type of the register as well
+try
+  redir @a                           " redirect output to register a
+  " Get the list of all key mappings silently, satisfy "Press ENTER to continue"
+  silent map | call feedkeys("\<CR>")
+  redir END                          " end output redirection
+  vnew                               " new buffer in vertical window
+  put a                              " put content of register
+  " Sort on 4th character column which is the key(s)
+  %!sort -k1.4,1.4
+finally                              " Execute even if exception is raised
+  call setreg("a", old_reg, old_reg_type) " restore register a
+endtry
+endfunction
+com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
+
+nnoremap \m :ShowMaps<CR>            " Map keys to call the function
+" ===========  show key bindings  ====================
+
+
