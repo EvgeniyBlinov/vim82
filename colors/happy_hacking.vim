@@ -118,7 +118,7 @@ call s:Color("ErrorMsg",   s:red,   "NONE",  s:t_red,   "NONE", "bold")
 call s:Color("WarningMsg", s:yellow, "NONE",  s:t_yellow, "NONE", "bold")
 call s:Color("Question",   s:white,  "NONE",  s:t_white,  "NONE")
 
-call s:Color("SpecialKey",  s:white, s:gray2, s:t_white, s:t_gray2)
+call s:Color("SpecialKey",  s:gray3, s:gray1, s:t_gray3, s:t_gray1)
 call s:Color("Directory",   s:blue,  "NONE",  s:t_blue,  "NONE")
 
 call s:Color("Comment",  s:gray4,    "NONE", s:t_gray4,    "NONE")
@@ -291,6 +291,9 @@ hi! link sassInclude cssMedia
 hi! link shFunctionKey Keyword
 hi! link shTestOpr     Operator
 hi! link bashStatement Normal
+hi! link shVariable Directory
+hi! link shHereString String
+hi! link shDeref Directory
 
 " SQL
 hi! link sqlKeyword Keyword
