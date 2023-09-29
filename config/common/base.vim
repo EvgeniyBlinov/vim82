@@ -101,3 +101,7 @@ endif
 
 "Vim Modelines Shell Command Injection Vulnerability disable
 set modelines=0
+
+runtime! config/php/**
+runtime! config/java/**
+runtime! config/go/**
