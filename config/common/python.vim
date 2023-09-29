@@ -21,3 +21,18 @@
 " ale
 ":call extend(g:ale_linters, {
     "\'python': ['flake8'], })
+
+"let g:jedi#rename_command = "<Nop>"
+
+if exists("coc#config")
+call coc#config('python', {
+\   'jediEnabled': v:false,
+\   'pythonPath': split(execute('!which python'), '\n')[-1]
+\ })
+
+call coc#config('jedi', {
+\   'workspace': {
+\		'environmentPath': split(execute('!which python'), '\n')[-1]
+\ }
+\ })
+endif
