@@ -46,11 +46,15 @@ endif
 
 "let g:plugs_disabled = ['nerdtree']
 
+let g:ale_go_bingo_options = '-remote=auto'
+
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
 	Plug 'preservim/nerdtree'
 	Plug 'preservim/nerdcommenter'
+	Plug 'kana/vim-textobj-user'
+
 	" For Git
 	Plug 'tpope/vim-fugitive'
 
