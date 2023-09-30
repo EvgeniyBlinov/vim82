@@ -33,6 +33,7 @@ let g:vim_bootstrap_frams = ""
 let g:vimwiki_list = [{'path': '~/doc/',
 						\ 'syntax': 'markdown', 
 						\ 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
 
 if !filereadable(vimplug_exists)
 	if !executable(curl_exists)
