@@ -1,4 +1,7 @@
 {
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true,
+
   "yaml.format.enable": false,
   "yaml.schemaStore.enable": false,
   "yaml.schemas": {
@@ -6,12 +9,12 @@
   }
   ,
   "languageserver": {
-	"golang": {
-	  "command": "gopls",
-	  "args": ["-remote=auto"],
-	  "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-	  "filetypes": ["go"]
-	}
+    "golang": {
+        "command": "gopls",
+        "args": ["-remote=auto"],
+        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+        "filetypes": ["go"]
+    }
   },
   "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk"
 }
