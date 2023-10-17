@@ -526,7 +526,7 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 "https://vimhelp.org/insert.txt.html#i%5FCTRL%2DV - debug keys
 
-if stridx($SHELL, "com.termux") < 0
+if stridx($SHELL, "com.termux") > 0
 "" unknown
 silent! unmap <C-r>
 map <C-r> <C-Y>
