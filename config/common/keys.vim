@@ -58,15 +58,15 @@ imap <silent> <Home> <C-O><Home>
 map <c-z> u
 imap <c-z> <C-O>u
 
+" redo
 " вернуть отменённое назад
 "noremap <c-y> <C-R>
 "inoremap <c-y> <C-O><C-R>
-if stridx($SHELL, "com.termux") < 0
-	"noremap <c-p> :redo<CR>
-	"inoremap <c-p> <C-O>:redo<CR>
-	noremap <S-u> :redo<CR>
-	"inoremap <c-p> <C-O>:redo<CR>
-endif
+noremap <S-u> :redo<CR>
+"if stridx($SHELL, "com.termux") < 0
+	""noremap <c-p> :redo<CR>
+	""inoremap <c-p> <C-O>:redo<CR>
+"endif
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
 " будет «глючить» — отсупы будут «съезжать». К счастью, это легко исправить — нажав Ctrl+U сразу после вставки.
