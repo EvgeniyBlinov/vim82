@@ -516,7 +516,7 @@ nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
 " ===========  markdown  =================
 "nmap <C-s> <Plug>MarkdownPreview
 "nmap <M-s> <Plug>MarkdownPreviewStop
-nmap <C-p> <Plug>MarkdownPreviewToggle
+"nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
 "set noautochdir
