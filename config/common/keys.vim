@@ -62,8 +62,10 @@ imap <c-z> <C-O>u
 "noremap <c-y> <C-R>
 "inoremap <c-y> <C-O><C-R>
 if stridx($SHELL, "com.termux") < 0
-noremap <c-p> :redo<CR>
-inoremap <c-p> <C-O>:redo<CR>
+	"noremap <c-p> :redo<CR>
+	"inoremap <c-p> <C-O>:redo<CR>
+	noremap <S-u> :redo<CR>
+	"inoremap <c-p> <C-O>:redo<CR>
 endif
 
 " Так как мы включили autoindent, то вставка текста с отступами (из буфера обмена X Window или screen) 
