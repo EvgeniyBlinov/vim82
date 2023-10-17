@@ -59,8 +59,8 @@ map <c-z> u
 imap <c-z> <C-O>u
 
 " вернуть отменённое назад
-noremap <c-y> :redo<cr>
-inoremap <c-y> <C-O>:redo<cr>
+"noremap <c-y> <C-R>
+"inoremap <c-y> <C-O><C-R>
 if stridx($SHELL, "com.termux") < 0
 noremap <c-p> :redo<CR>
 inoremap <c-p> <C-O>:redo<CR>
@@ -526,7 +526,7 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 ":verbose setlocal omnifunc?
 "https://vimhelp.org/insert.txt.html#i%5FCTRL%2DV - debug keys
 
-if stridx($SHELL, "com.termux") > 0
+if stridx($SHELL, "com.termux") < 0
 "" unknown
 silent! unmap <C-r>
 map <C-r> <C-Y>
