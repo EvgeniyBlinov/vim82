@@ -59,8 +59,8 @@ map <c-z> u
 imap <c-z> <C-O>u
 
 " вернуть отменённое назад
-"noremap <c-y> <C-R>
-"inoremap <c-y> <C-O><C-R>
+noremap <c-y> :redo<cr>
+inoremap <c-y> <C-O>:redo<cr>
 if stridx($SHELL, "com.termux") < 0
 noremap <c-p> :redo<CR>
 inoremap <c-p> <C-O>:redo<CR>
