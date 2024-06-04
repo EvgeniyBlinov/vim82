@@ -47,3 +47,4 @@ else
 endif
 
 "colorscheme default
+"verbose highlight
