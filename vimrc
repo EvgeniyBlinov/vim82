@@ -65,6 +65,8 @@ endif
 
 "let g:plugs_disabled = ['nerdtree']
 
+let g:NERDTreeFindResolveSymlinks = 0
+
 let g:ale_go_bingo_options = '-remote=auto'
 
 " Required:
@@ -153,6 +155,8 @@ call plug#begin(expand('~/.vim/plugged'))
 		Plug 'robbles/logstash.vim'
 
 		Plug 'pedrohdz/vim-yaml-folds'
+
+		Plug 'vim-scripts/iptables'
 	endif
 
 	if index(g:vim_config_variant, 'js') >= 0
