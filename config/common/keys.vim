@@ -508,6 +508,7 @@ nnoremap gb :ls<CR>:b<Space>
 "imap <F6> <Esc>:bn<CR>i
 
 "" Перейти в файл под курсором
+nnoremap <F4> :vertical wincmd F<CR>
 nnoremap <F8> :vertical wincmd F<CR>
 nnoremap <C-x> :vertical wincmd F<CR>
 nnoremap <F9> <C-w>v:<C-U>call gf#user#do("gF", "n")<CR>
@@ -537,10 +538,12 @@ imap <C-r> <C-Y>
 endif
 
 " ===========  theme  ====================
+"" get group name of highlighting under cursor
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 nnoremap <F12> :so $VIMRUNTIME/syntax/hitest.vim<CR>
+"verbose highlight
 
 
 noremap <silent> <F10> :call system(substitute(&makeprg, '%', expand("%:p"), "") . ' &')<cr>
@@ -599,4 +602,7 @@ com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
 nnoremap \m :ShowMaps<CR>            " Map keys to call the function
 " ===========  show key bindings  ====================
 
+" ===  vim-go  =================
+"nmap <leader>gr :GoReferrers<CR>
+nmap <leader>gr <Plug>(go-referrers)
 
