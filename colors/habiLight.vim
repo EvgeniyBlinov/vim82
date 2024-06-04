@@ -186,8 +186,10 @@ highlight TabLineSel  term=bold cterm=bold gui=bold
 
 " Spell Checker {{{1
 if v:version >= 700
-    highlight SpellBad    term=reverse   ctermbg=red cterm=bold gui=undercurl guisp=Red
-    highlight SpellCap    term=reverse   ctermbg=9  gui=undercurl guisp=Blue
+    "highlight SpellBad    term=reverse   ctermbg=red cterm=bold gui=undercurl guisp=Red
+    "highlight SpellCap    term=reverse   ctermbg=9  gui=undercurl guisp=Blue
+	highlight SpellBad term=reverse guifg=Black guibg=#ee9696 guisp=#ee9696 ctermbg=13
+	highlight SpellCap term=reverse guifg=Black guibg=#ee9696 guisp=#ee9696 ctermbg=13
     highlight SpellRare   term=reverse   ctermbg=13 gui=undercurl guisp=Magenta
     highlight SpellLocale term=underline ctermbg=11 gui=undercurl guisp=DarkCyan
 endif 
@@ -195,7 +197,7 @@ endif
 " Completion {{{1
 highlight Pmenu      ctermbg=13  guifg=Black   guibg=#BDDFFF
 highlight PmenuSel   ctermbg=7   guifg=Black   guibg=Orange
-highlight PmenuSbar  ctermbg=7   guifg=#CCCCCC guibg=#CCCCCC
+highlight PmenuSbar  ctermbg=7   guifg=Black   guibg=#CCCCCC
 highlight PmenuThumb cterm=reverse  gui=reverse guifg=Black   guibg=#AAAAAA
 
 " Misc {{{1
@@ -204,6 +206,10 @@ highlight mySpecialSymbols guifg=magenta gui=NONE
 
 
 highlight MatchParen  term=reverse ctermbg=11 gui=bold guibg=#B5EEB5 guifg=black
+
+highlight CocInfoFloat guifg=Red guibg=#CCCCCC
+highlight CocListBgRed guifg=White  guibg=#EB1513
+
 
 
 " vim600:foldmethod=marker
