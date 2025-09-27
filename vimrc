@@ -29,7 +29,6 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "let g:vim_bootstrap_theme = "molokai"
 let g:vim_bootstrap_frams = ""
 
-
 let g:vimwiki_list = [{'path': '~/doc/',
 						\ 'syntax': 'markdown', 
 						\ 'ext': '.md'}]
@@ -72,7 +71,7 @@ let g:ale_go_bingo_options = '-remote=auto'
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
-	Plug 'preservim/nerdtree'
+	Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 	Plug 'preservim/nerdcommenter'
 	Plug 'kana/vim-textobj-user'
 
@@ -107,7 +106,12 @@ call plug#begin(expand('~/.vim/plugged'))
 
 		Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+		"*****************************************************************************
+		"" UML
 		Plug 'aklt/plantuml-syntax'
+		Plug 'tyru/open-browser.vim'
+		Plug 'weirongxu/plantuml-previewer.vim'
+		"*****************************************************************************
 
 		Plug 'mustache/vim-mustache-handlebars'
 
@@ -123,6 +127,8 @@ call plug#begin(expand('~/.vim/plugged'))
 		"*****************************************************************************
 		" table mode
 		Plug 'dhruvasagar/vim-table-mode'
+		"@TODO test it
+		Plug 'pseewald/vim-anyfold'
 	endif
 
 	if index(g:vim_config_variant, 'go') >= 0
@@ -155,6 +161,7 @@ call plug#begin(expand('~/.vim/plugged'))
 		Plug 'robbles/logstash.vim'
 
 		Plug 'pedrohdz/vim-yaml-folds'
+		Plug 'nextmn/vim-yaml-jinja'
 
 		Plug 'vim-scripts/iptables'
 	endif
