@@ -12,3 +12,7 @@ charset = utf-8
 [*.{vim,vimrc}]
 indent_style = tab
 indent_size = 4
+
+[vimrc]
+indent_style = tab
+indent_size = 4
