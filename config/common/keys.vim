@@ -341,6 +341,7 @@ endfunction
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 "map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
+"" C-o - back
 map <C-\> :vsp <CR>:call <SID>GoToDefinition()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -352,7 +353,7 @@ endif
 " Сортировка css свойств
 noremap <silent><leader>ss <esc>vi{:!sort<cr>:echo "Свойства css отсортированы!"<cr>
 " Форматирование css
-noremap <silent><leader>ct <esc>:%!/usr/share/vim/cssformatter.py<cr>:echo "Свойства css отформатированы!"<cr>
+"noremap <silent><leader>ct <esc>:%!/usr/share/vim/cssformatter.py<cr>:echo "Свойства css отформатированы!"<cr>
 
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
@@ -606,3 +607,37 @@ nnoremap \m :ShowMaps<CR>            " Map keys to call the function
 "nmap <leader>gr :GoReferrers<CR>
 nmap <leader>gr <Plug>(go-referrers)
 
+"map  <leader>c :!xargs echo
+"map  <leader>c :!kcolorchooser --print --color . expand(@")
+"map  <leader>c :!echo \|xargs kcolorchooser --print --color
+"map  <leader>c c<C-R>=system('base64 -D', getreg('"'))
+"function Kcolorchooser(color)
+	"echo a:color
+	"let out = system('xargs kcolorchooser --print --color', a:color)
+	"echo out
+"endfunction
+"map  <leader>c :call Kcolorchooser(@")<cr>
+"map  <leader>c :call system("kcolorchooser --print --color " . shellescape(@"))<cr>
+"map  <leader>c :let @+=system("kcolorchooser --print --color " . shellescape(@"))<cr>
+"map  <leader>c :echo system('echo '.shellescape(@").' | YourCommand')<cr>
+"map  <leader>c :call system("xargs -I{} x-terminal-emulator --hold echo {}", @")<cr>
+"map <leader>c :!sh -c "cat" \| let @/ = getline("'<", "'>") \| execute "normal! gv"_s" \| put! \| normal! gv"_d
+"vnoremap <F5>
+"map <leader>c :<C-u>let @+=system("kcolorchooser --print --color " . shellescape(@")) \| '<,'>d \| put! =@+<CR>
+"map <leader>c :<C-u>let @+=system("kcolorchooser --print --color " . shellescape(@")) |
+	"\ execute "normal! gv"_s" |
+	"\ put! =@+ | \
+	"normal! gv"_d<CR>
+
+"map  <leader>c :put =system("kcolorchooser --print --color " . shellescape(@"))<cr>
+
+"funct! Exec(command)
+    "redir =>output
+    "silent exec a:command
+    "redir END
+    "let @o = output
+    "execute "put o"
+    "return ''
+"endfunct!
+
+"map  <leader>c :call Exec('kcolorchooser --print --color ' . shellescape(@"))

@@ -1,6 +1,6 @@
 " ===========  ultisnips  =================
 if exists('g:Ulti')
-    let g:UltiSnipsExpandTrigger="<c-n>"
+    let g:UltiSnipsExpandTrigger="<c-g>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
