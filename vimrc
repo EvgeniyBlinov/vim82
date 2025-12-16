@@ -190,6 +190,8 @@ call plug#begin(expand('~/.vim/plugged'))
 		Plug 'honza/vim-snippets'
 
 		Plug 'will133/vim-dirdiff', { 'commit': '84bc8999fde4b3c2d8b228b560278ab30c7ea4c9' }
+
+		"Plug 'chrisbra/csv.vim'
 	endif
 
 
@@ -207,6 +209,7 @@ call plug#end()
 " ===========  coc  ======================
 let g:coc_disable_startup_warning = 1
 "'coc-yaml@1.3.1',
+"\'coc-jedi'
 let g:coc_global_extensions = [
 	\'coc-json',
 	\'coc-go',
@@ -214,7 +217,7 @@ let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-html',
 	\'coc-java',
-	\'coc-jedi'
+	\'coc-pyright'
 	\]
 
 "g:coc_user_config
@@ -241,7 +244,7 @@ filetype plugin indent on
 "Add "yaml.trace.server": "verbose" to your coc-settings.json
 ":CocCommand workspace.showOutput yaml
 
-runtime! config/common/**
+runtime! config/common/**.vim
 runtime! PROJECTS/**
 
  "echo -e "var:\n  var: value\n  var2: 123" | nvim - --headless +'set runtimepath+=$HOME/.vim' +'set ft=yaml'  +'runtime! vimrc' +'runtime! catcolored.vim'  +'q!'

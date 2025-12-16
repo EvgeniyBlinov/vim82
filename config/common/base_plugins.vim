@@ -1,6 +1,6 @@
 " ===========  ultisnips  =================
-if exists('g:Ulti')
-    let g:UltiSnipsExpandTrigger="<c-g>"
+if has_key(g:plugs, 'ultisnips')
+    let g:UltiSnipsExpandTrigger="<c-q>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
