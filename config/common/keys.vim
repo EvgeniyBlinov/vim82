@@ -342,6 +342,8 @@ endfunction
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 "map <C-\> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>
 "" C-o - back
+"" g-Backspace - back for previuos file
+nmap g<BS> <C-O>
 map <C-\> :vsp <CR>:call <SID>GoToDefinition()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
